@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.straz.task_7_6_alarm_clock.R
 import com.straz.task_7_6_alarm_clock.`object`.*
-import com.straz.task_7_6_alarm_clock.adapters.AdapterHome
 import com.straz.task_7_6_alarm_clock.databinding.FragmentAddAlarmBinding
 import com.straz.task_7_6_alarm_clock.models.AlarmTime
 import java.text.SimpleDateFormat
@@ -29,7 +28,7 @@ class FragmentEdit : Fragment() {
     @SuppressLint("SimpleDateFormat")
     private val dateFormat = SimpleDateFormat("dd/MM/yyyy")
     private val b get() = _binding!!
-    private var weeksBool = arrayListOf(false,false, false, false, false, false, false)
+    private var weeksBool = arrayListOf(false, false, false, false, false, false, false)
     private var weekDays = TreeSet<Int>()
     private var hour = 6
     private var minute = 0
@@ -67,7 +66,7 @@ class FragmentEdit : Fragment() {
             Log.d("main", "weeksBool : $weeksBool")
             Log.d("main", "alarmEdit.days : ${alarmEdit!!.days}")
 
-            weeksBool=alarmEdit!!.days
+            weeksBool = alarmEdit!!.days
 //            b.etNameAlarm.setText(alarmEdit!!.name)
             b.timePicker.setIs24HourView(true)
             b.timePicker.hour = alarmEdit!!.hour
@@ -77,9 +76,13 @@ class FragmentEdit : Fragment() {
 //            b.tvVibration.text = "yoniq"
 
             b.tvSave.setOnClickListener {
+                soundness = true
+                ALARM_SOUNDNESS = true
                 saveAlarm()
             }
             b.tvExit.setOnClickListener {
+                soundness = false
+                ALARM_SOUNDNESS = false
                 findNavController().popBackStack()
             }
 //            b.ivCalendar.setOnClickListener {
@@ -115,21 +118,19 @@ class FragmentEdit : Fragment() {
 
 
         }
+        setAlarmName()
         return b.root
     }
 
-    private fun setAlarmName(isChecked: Boolean) {
-        if (!isChecked)
-            b.tvSoundAlarm.text = "ovozsiz"
-        else {
-            if (ALARM_URL_PREF == "" || ALARM_URL_PREF == null) {
-                val t = resources.getText(alarmSounds[0])
-                b.tvSoundAlarm.text = t.substring(t.lastIndexOf("/") + 1, t.length)
-            } else {
-                b.tvSoundAlarm.text = ALARM_NAME_PREF
-            }
+    private fun setAlarmName() {
 
+        if (ALARM_URL_PREF == "" || ALARM_URL_PREF == null) {
+            val t = resources.getText(alarmSounds[0])
+            b.tvSoundAlarm.text = t.substring(t.lastIndexOf("/") + 1, t.length)
+        } else {
+            b.tvSoundAlarm.text = ALARM_NAME_PREF
         }
+
     }
 
 //    private fun setInterval(isChecked: Boolean) {
@@ -181,8 +182,8 @@ class FragmentEdit : Fragment() {
             } else {
                 alarmEdit!!.date = calendar.timeInMillis + 86_400_000
             }
-        }else{
-            alarmEdit!!.date=0
+        } else {
+            alarmEdit!!.date = 0
         }
 
 

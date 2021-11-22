@@ -67,7 +67,7 @@ class FragmentHome : Fragment() {
                     setChangedItem(pos, alarmTime)
 
                 }
-            })
+            },requireContext())
             b.recyclerView.adapter = adapter
             setTitles()
             initAlarmAdd()
@@ -129,7 +129,7 @@ class FragmentHome : Fragment() {
             val map = HashMap<Long, AlarmTime>()
             filter1.forEach { alar ->
                 if (alar.date > 0) {
-                    map.put(alar.date, alar)
+                    map[alar.date] = alar
                 } else if (alar.days.filter { it }.isNotEmpty()) {
                     for (i in weeks.indices) {
                         if (alar.days[i]) {

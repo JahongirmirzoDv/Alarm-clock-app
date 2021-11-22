@@ -93,21 +93,18 @@ class FragmentAdd : Fragment() {
             b.hour1.text = " $hourOfDay hour $minute minute"
         }
         setWeekListeners()
+        setAlarmName()
         return b.root
     }
 
-    private fun setAlarmName(isChecked: Boolean) {
-        if (!isChecked)
-            b.tvSoundAlarm.text = "ovozsiz"
-        else {
-            if (ALARM_URL_PREF == "" || ALARM_URL_PREF == null) {
-                val t = resources.getText(alarmSounds[0])
-                b.tvSoundAlarm.text = t.substring(t.lastIndexOf("/") + 1, t.length)
-            } else {
-                b.tvSoundAlarm.text = ALARM_NAME_PREF
-            }
-
+    private fun setAlarmName() {
+        if (ALARM_URL_PREF == "" || ALARM_URL_PREF == null) {
+            val t = resources.getText(alarmSounds[0])
+            b.tvSoundAlarm.text = t.substring(t.lastIndexOf("/") + 1, t.length)
+        } else {
+            b.tvSoundAlarm.text = ALARM_NAME_PREF
         }
+
     }
 
 //    private fun setInterval(isChecked: Boolean) {
@@ -155,7 +152,7 @@ class FragmentAdd : Fragment() {
             calendar[Calendar.DAY_OF_MONTH] = selectedDay
             alarmTime.date = calendar.timeInMillis
             alarmTime.days.clear()
-        } else if (weeksBool.filter { it }.isEmpty() || isPaused == false) {
+        } else if (weeksBool.none { it } || !isPaused) {
             if (calendar.timeInMillis > now) {
                 alarmTime.date = calendar.timeInMillis
             } else {
@@ -172,8 +169,8 @@ class FragmentAdd : Fragment() {
                     it.hour == alarmTime.hour &&
                     it.minute == alarmTime.minute
         }
-        Log.d("main", "add weeksBool : $weeksBool")
-        Log.d("main", "add alarmEdit.days : ${alarmTime.days}")
+//        Log.d("main", "add weeksBool : $weeksBool")
+//        Log.d("main", "add alarmEdit.days : ${alarmTime.days}")
         if (filter.isEmpty()) {
             addAlarm(alarmTime)
         }
@@ -226,12 +223,16 @@ class FragmentAdd : Fragment() {
             }
         }
         val weekTrues = weeksBool.filter { it }
-        if (weekTrues.size == 7) {
-            b.days.text = "Evry day"
-        } else if (weekTrues.isEmpty()) {
-            b.days.text = ""
-        } else {
-            b.days.text = text
+        when {
+            weekTrues.size == 7 -> {
+                b.days.text = "Evry day"
+            }
+            weekTrues.isEmpty() -> {
+                b.days.text = ""
+            }
+            else -> {
+                b.days.text = text
+            }
         }
 
     }

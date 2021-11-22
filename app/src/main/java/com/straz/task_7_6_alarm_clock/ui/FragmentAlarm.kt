@@ -27,6 +27,7 @@ class FragmentAlarm : Fragment() {
             mediaPlayer = null
             val gson = Gson()
             val alarm = gson.fromJson(CURRENT_ALARM_PREF, AlarmTime::class.java)
+            alarm.soundness = false
             cancelAlarm(requireContext(), alarm)
             findNavController().popBackStack()
         }

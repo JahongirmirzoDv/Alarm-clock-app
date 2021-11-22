@@ -1,18 +1,20 @@
 package com.straz.task_7_6_alarm_clock.adapters
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.straz.task_7_6_alarm_clock.R
-import com.straz.task_7_6_alarm_clock.`object`.APP
-import com.straz.task_7_6_alarm_clock.`object`.getDate
-import com.straz.task_7_6_alarm_clock.`object`.weeks
-import com.straz.task_7_6_alarm_clock.`object`.zero
+import com.straz.task_7_6_alarm_clock.`object`.*
 import com.straz.task_7_6_alarm_clock.databinding.RvItemBinding
 import com.straz.task_7_6_alarm_clock.models.AlarmTime
 
-class AdapterHome(val list: ArrayList<AlarmTime>, val listener: ItemSelectListener) :
+class AdapterHome(
+    val list: ArrayList<AlarmTime>,
+    val listener: ItemSelectListener,
+    var context: Context
+) :
     RecyclerView.Adapter<AdapterHome.Vh>() {
     inner class Vh(val itemV: RvItemBinding) : RecyclerView.ViewHolder(itemV.root) {
         @SuppressLint("SetTextI18n")
@@ -48,6 +50,9 @@ class AdapterHome(val list: ArrayList<AlarmTime>, val listener: ItemSelectListen
 
             itemV.switchAlarm.setOnCheckedChangeListener {
                 listener.onCheckedChanged(alarm, pos, it)
+                if (!it) {
+                    cancelAlarm(context, alarm)
+                }
             }
             itemV.lHome.setOnLongClickListener {
                 listener.onLongClick(alarm, pos)
