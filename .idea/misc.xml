@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/drawable/back_blue_30.xml" value="0.240625" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/fragment_add.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/fragment_add_alarm.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/fragment_alarm.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/fragment_pause.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/fragment_select_sound.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/item_home.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/item_select_sound.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/rv.xml" value="0.22447916666666667" />
+        <entry key="..\:/anp/Task_7_6_alarm_clock/Task_7_6_alarm_clock/app/src/main/res/layout/rv_item.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

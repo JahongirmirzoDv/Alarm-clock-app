@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Task_7_6_alarm_clock" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Customize your theme here. -->
+        <item name="backText">@color/white_night</item>
+        <item name="backAdd">@color/grey_light_night</item>
+        <item name="backBackground">@color/background_night</item>
+        <item name="myTextColor">@color/white</item>
+        <item name="mySubtextColor">@color/grey_light</item>
+        <item name="blue">@color/blue_light</item>
+    </style>
+</resources>

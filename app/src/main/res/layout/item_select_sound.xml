@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_white_30"
+    android:gravity="center_vertical"
+    android:layout_margin="@dimen/dp15"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/dp15">
+
+    <ImageView
+        android:id="@+id/iv_music"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingEnd="@dimen/dp10"
+        android:src="@drawable/ic_music" />
+
+    <LinearLayout
+        android:layout_toEndOf="@id/iv_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/dp10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Budilnik ovozi"
+            android:maxLines="1"
+            android:textColor="?myTextColor"
+            android:textSize="@dimen/font18" />
+
+        <TextView
+            android:id="@+id/tv_sound_name"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/font18"
+            android:layout_height="wrap_content"
+            android:text="Morning Glory"
+            android:textColor="?attr/blue" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.straz.task_7_6_alarm_clock.ui.FragmentHome"
+        android:label="FragmentHome" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentAdd"
+            app:destination="@id/fragmentAdd" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentEdit"
+            app:destination="@id/fragmentEdit" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentAlarm"
+            app:destination="@id/fragmentAlarm" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAdd"
+        android:name="com.straz.task_7_6_alarm_clock.ui.FragmentAdd"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_fragmentAdd_to_fragmentSelectSound"
+            app:destination="@id/fragmentSelectSound" />
+        <action
+            android:id="@+id/action_fragmentAdd_to_fragmentPause"
+            app:destination="@id/fragmentPause" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSelectSound"
+        android:name="com.straz.task_7_6_alarm_clock.ui.FragmentSelectSound"
+        android:label="FragmentSelectSound" >
+        <action
+            android:id="@+id/action_fragmentSelectSound_to_fragmentListAlarms"
+            app:destination="@id/fragmentListAlarms" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentListAlarms"
+        android:name="com.straz.task_7_6_alarm_clock.ui.FragmentListAlarms"
+        android:label="FragmentListAlarms" />
+    <fragment
+        android:id="@+id/fragmentPause"
+        android:name="com.straz.task_7_6_alarm_clock.ui.FragmentPause"
+        android:label="FragmentPause" />
+    <fragment
+        android:id="@+id/fragmentEdit"
+        android:name="com.straz.task_7_6_alarm_clock.ui.FragmentEdit"
+        android:label="FragmentEdit" >
+        <action
+            android:id="@+id/action_fragmentEdit_to_fragmentPause"
+            app:destination="@id/fragmentPause" />
+        <action
+            android:id="@+id/action_fragmentEdit_to_fragmentSelectSound"
+            app:destination="@id/fragmentSelectSound" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAlarm"
+        android:name="com.straz.task_7_6_alarm_clock.ui.FragmentAlarm"
+        android:label="FragmentAlarm" />
+</navigation>

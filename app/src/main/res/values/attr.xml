@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="myDeclarative">
+        <attr name="backText" format="color"/>
+        <attr name="backBackground" format="color"/>
+        <attr name="backAdd" format="color"/>
+        <attr name="myTextColor" format="color"/>
+        <attr name="mySubtextColor" format="color"/>
+        <attr name="blue" format="color"/>
+    </declare-styleable>
+</resources>

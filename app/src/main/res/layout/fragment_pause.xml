@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backBackground"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingEnd="@dimen/dp10"
+                    android:src="@drawable/ic_back_arrow" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Pauza"
+                    android:textColor="?attr/myTextColor"
+                    android:textSize="@dimen/font20" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/tv_interval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp25"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="Interval"
+            android:textSize="@dimen/font17"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/l_off_on" />
+
+        <LinearLayout
+            android:id="@+id/l_interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp5"
+            android:background="@drawable/back_white_30"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp15"
+            app:layout_constraintTop_toBottomOf="@id/tv_interval">
+
+            <RadioGroup
+                android:id="@+id/rg_interval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rb_5"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5 minut"
+                    android:textSize="@dimen/font17" />
+
+                <RadioButton
+                    android:id="@+id/rb_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10 minut"
+                    android:textSize="@dimen/font17" />
+
+                <RadioButton
+                    android:id="@+id/rb_15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="15 minut"
+                    android:textSize="@dimen/font17" />
+
+                <RadioButton
+                    android:id="@+id/rb_30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30 minut"
+                    android:textSize="@dimen/font17" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp25"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="Takrorlash soni"
+            android:textSize="@dimen/font17"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/l_interval" />
+
+        <LinearLayout
+            android:id="@+id/l_repeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp5"
+            android:background="@drawable/back_white_30"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp15"
+            app:layout_constraintTop_toBottomOf="@id/tv_repeat">
+
+            <RadioGroup
+                android:id="@+id/rg_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:checked="true"
+                    android:id="@+id/rb_repeat_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3 marta"
+                    android:textSize="@dimen/font17" />
+
+                <RadioButton
+                    android:id="@+id/rb_repeat_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5 marta"
+                    android:textSize="@dimen/font17" />
+
+                <RadioButton
+                    android:id="@+id/rb_repeat_endless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="To'xtovsiz"
+                    android:textSize="@dimen/font17" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey_clear"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/l_off_on"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_margin="@dimen/dp5"
+            android:background="@drawable/back_blue_30"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp20"
+            android:translationZ="@dimen/dp10"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TextView
+                android:id="@+id/tv_on_off"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yoniq"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font20" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingStart="@dimen/dp5"
+                app:theme="@style/Color1SwitchSelect" />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
