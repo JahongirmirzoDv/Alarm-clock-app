@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "105775083029",
+    "project_id": "alarm-app-chsd",
+    "storage_bucket": "alarm-app-chsd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105775083029:android:fa7fa3a073828e9ac6681c",
+        "android_client_info": {
+          "package_name": "com.chsd.alarm_clock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105775083029-1g4qutdjaf9naq4rc1f623m1gncmg7cd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTC4RlUEoXiLHnriJcWaqxwBt4fuzQnO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105775083029-1g4qutdjaf9naq4rc1f623m1gncmg7cd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
