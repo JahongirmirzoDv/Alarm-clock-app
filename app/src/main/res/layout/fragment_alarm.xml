@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B2706E6E"
@@ -8,9 +9,12 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/btnStop"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:id="@+id/btnStop"
+        app:cardMaxElevation="10dp"
+        android:elevation="5dp"
+        app:cardElevation="5dp"
         android:backgroundTint="#D36E6E6E"
         android:clickable="true"
         app:cardCornerRadius="200dp"
@@ -27,10 +31,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pause"
+                android:text="stop"
                 android:textAlignment="center"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="30sp" />
+                android:textFontWeight="700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:targetApi="p" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

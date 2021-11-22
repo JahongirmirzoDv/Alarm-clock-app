@@ -10,6 +10,7 @@ import com.google.gson.Gson
 import com.straz.task_7_6_alarm_clock.`object`.CURRENT_ALARM_PREF
 import com.straz.task_7_6_alarm_clock.`object`.cancelAlarm
 import com.straz.task_7_6_alarm_clock.`object`.mediaPlayer
+import com.straz.task_7_6_alarm_clock.`object`.updateAlarm
 import com.straz.task_7_6_alarm_clock.databinding.FragmentAlarmBinding
 import com.straz.task_7_6_alarm_clock.models.AlarmTime
 
@@ -28,6 +29,7 @@ class FragmentAlarm : Fragment() {
             val gson = Gson()
             val alarm = gson.fromJson(CURRENT_ALARM_PREF, AlarmTime::class.java)
             alarm.soundness = false
+            updateAlarm(alarm)
             cancelAlarm(requireContext(), alarm)
             findNavController().popBackStack()
         }
