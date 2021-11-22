@@ -57,4 +57,5 @@ dependencies {
     implementation 'com.akexorcist:snap-time-picker:1.0.3'
     implementation 'com.kevalpatel2106:ringtonepicker:1.2'
     implementation 'com.bitvale:switcher:1.1.1'
+    implementation 'com.karumi:dexter:6.2.3'
 }
