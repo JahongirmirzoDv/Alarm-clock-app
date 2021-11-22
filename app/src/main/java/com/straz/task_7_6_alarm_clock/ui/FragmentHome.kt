@@ -2,15 +2,16 @@ package com.straz.task_7_6_alarm_clock.ui
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.straz.task_7_6_alarm_clock.R
 import com.straz.task_7_6_alarm_clock.`object`.*
 import com.straz.task_7_6_alarm_clock.adapters.AdapterHome
@@ -59,16 +60,40 @@ class FragmentHome : Fragment() {
                 }
 
                 override fun onLongClick(alarmTime: AlarmTime, pos: Int) {
-                    showDialog(alarmTime, pos)
+
                 }
 
                 override fun onCheckedChanged(alarmTime: AlarmTime, pos: Int, isChecked: Boolean) {
                     alarmTime.soundness = isChecked
                     setChangedItem(pos, alarmTime)
-
                 }
-            },requireContext())
+            }, requireContext())
             b.recyclerView.adapter = adapter
+
+            var touch = object : ItemTouchHelper.Callback() {
+                override fun getMovementFlags(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder
+                ): Int {
+                    var swipe = ItemTouchHelper.START or ItemTouchHelper.END
+                    return makeMovementFlags(0, swipe)
+                }
+
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    adapter.delete(viewHolder.adapterPosition)
+                }
+
+            }
+            var itemTouchHelper = ItemTouchHelper(touch)
+            itemTouchHelper.attachToRecyclerView(b.recyclerView)
             setTitles()
             initAlarmAdd()
         }
@@ -93,29 +118,6 @@ class FragmentHome : Fragment() {
         setTitles()
     }
 
-    private fun showDialog(
-        alarmTime: AlarmTime,
-        pos: Int
-    ) {
-        val builder = AlertDialog.Builder(APP)
-        builder.setCancelable(true)
-        builder.setTitle("O'chirish")
-        builder.setMessage("O'chirishga ishonchingiz komilmi?")
-        builder.setNegativeButton("Bekor"
-        ) { dialog, which -> dialog?.cancel() }
-        builder.setPositiveButton("Ha"
-        ) { dialog, which ->
-            listAlarms.remove(alarmTime)
-            adapter.notifyItemRemoved(pos)
-            adapter.notifyItemRangeChanged(pos, listAlarms.size)
-            removeAlarm(alarmTime)
-            cancelAlarm(requireContext(), alarmTime)
-            setTitles()
-            initAlarmAdd()
-            dialog?.cancel()
-        }
-        builder.create().show()
-    }
 
     @SuppressLint("SetTextI18n")
     private fun setTitles() {

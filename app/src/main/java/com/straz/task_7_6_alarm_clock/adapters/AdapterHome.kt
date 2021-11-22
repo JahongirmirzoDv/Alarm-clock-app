@@ -4,18 +4,21 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import com.straz.task_7_6_alarm_clock.R
 import com.straz.task_7_6_alarm_clock.`object`.*
 import com.straz.task_7_6_alarm_clock.databinding.RvItemBinding
 import com.straz.task_7_6_alarm_clock.models.AlarmTime
+import com.straz.task_7_6_alarm_clock.models.ItemTouchHelper
 
 class AdapterHome(
-    val list: ArrayList<AlarmTime>,
+    var list: ArrayList<AlarmTime>,
     val listener: ItemSelectListener,
     var context: Context
 ) :
-    RecyclerView.Adapter<AdapterHome.Vh>() {
+    RecyclerView.Adapter<AdapterHome.Vh>(), ItemTouchHelper {
     inner class Vh(val itemV: RvItemBinding) : RecyclerView.ViewHolder(itemV.root) {
         @SuppressLint("SetTextI18n")
         fun onClick(alarm: AlarmTime, pos: Int) {
@@ -90,5 +93,13 @@ class AdapterHome(
         fun onLongClick(alarmTime: AlarmTime, pos: Int)
         fun onCheckedChanged(alarmTime: AlarmTime, pos: Int, isChecked: Boolean)
 
+    }
+
+    override fun delete(position: Int) {
+        list.removeAt(position)
+        notifyItemRemoved(position)
+        Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show()
+        list.sortBy { it.hour }
+        ALARMS_PREF = Gson().toJson(list)
     }
 }
