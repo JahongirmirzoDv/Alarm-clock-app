@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="backText">@color/white_night</item>
         <item name="backAdd">@color/grey_light_night</item>
-        <item name="backBackground">@color/background_night</item>
+        <item name="backBackground">@color/black</item>
         <item name="myTextColor">@color/white</item>
         <item name="mySubtextColor">@color/grey_light</item>
         <item name="blue">@color/blue_light</item>

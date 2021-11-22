@@ -59,9 +59,6 @@ class FragmentAdd : Fragment() {
         b.timePicker.hour = 6
         b.timePicker.minute = 0
 
-        b.timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
-            b.hour1.text = "$hourOfDay hour $minute minute"
-        }
         b.tvSave.setOnClickListener {
             saveAlarm()
         }
@@ -93,6 +90,7 @@ class FragmentAdd : Fragment() {
         b.timePicker.setOnTimeChangedListener { view, hourOfDay, minute1 ->
             hour = hourOfDay
             minute = minute1
+            b.hour1.text = " $hourOfDay hour $minute minute"
         }
         setWeekListeners()
         return b.root
