@@ -40,7 +40,7 @@ class FragmentListAlarms : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = RvBinding.inflate(layoutInflater)
         val ringtonePickerBuilder = RingtonePickerDialog.Builder(
             requireContext(),

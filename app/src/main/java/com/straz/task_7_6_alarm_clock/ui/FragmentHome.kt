@@ -101,25 +101,19 @@ class FragmentHome : Fragment() {
         builder.setCancelable(true)
         builder.setTitle("O'chirish")
         builder.setMessage("O'chirishga ishonchingiz komilmi?")
-        builder.setNegativeButton("Bekor", object : DialogInterface.OnClickListener {
-            override fun onClick(dialog: DialogInterface?, which: Int) {
-                dialog?.cancel()
-            }
-
-        })
-        builder.setPositiveButton("Ha", object : DialogInterface.OnClickListener {
-            override fun onClick(dialog: DialogInterface?, which: Int) {
-                listAlarms.remove(alarmTime)
-                adapter.notifyItemRemoved(pos)
-                adapter.notifyItemRangeChanged(pos, listAlarms.size)
-                removeAlarm(alarmTime)
-                cancelAlarm(requireContext(), alarmTime)
-                setTitles()
-                initAlarmAdd()
-                dialog?.cancel()
-            }
-
-        })
+        builder.setNegativeButton("Bekor"
+        ) { dialog, which -> dialog?.cancel() }
+        builder.setPositiveButton("Ha"
+        ) { dialog, which ->
+            listAlarms.remove(alarmTime)
+            adapter.notifyItemRemoved(pos)
+            adapter.notifyItemRangeChanged(pos, listAlarms.size)
+            removeAlarm(alarmTime)
+            cancelAlarm(requireContext(), alarmTime)
+            setTitles()
+            initAlarmAdd()
+            dialog?.cancel()
+        }
         builder.create().show()
     }
 

@@ -87,7 +87,7 @@ class FragmentEdit : Fragment() {
 //            }
 
             b.lAlarmSound.setOnClickListener {
-                findNavController().navigate(R.id.action_fragmentEdit_to_fragmentSelectSound)
+                findNavController().navigate(R.id.fragmentListAlarms)
             }
 
             b.switchVibrate.setOnCheckedChangeListener {

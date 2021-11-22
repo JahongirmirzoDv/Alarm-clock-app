@@ -59,7 +59,9 @@ class FragmentAdd : Fragment() {
         b.timePicker.hour = 6
         b.timePicker.minute = 0
 
-
+        b.timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
+            b.hour1.text = "$hourOfDay hour $minute minute"
+        }
         b.tvSave.setOnClickListener {
             saveAlarm()
         }
@@ -227,11 +229,11 @@ class FragmentAdd : Fragment() {
         }
         val weekTrues = weeksBool.filter { it }
         if (weekTrues.size == 7) {
-            b.tvAlarmDaysTitle.text = "Har kuni"
+            b.days.text = "Evry day"
         } else if (weekTrues.isEmpty()) {
-            b.tvAlarmDaysTitle.text = ""
+            b.days.text = ""
         } else {
-            b.tvAlarmDaysTitle.text = "Har: $text"
+            b.days.text = text
         }
 
     }
