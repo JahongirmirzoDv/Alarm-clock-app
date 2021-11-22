@@ -51,7 +51,7 @@ class FragmentListAlarms : Fragment() {
             .displayDefaultRingtone(true) //Set true to allow user to select silent (i.e. No ringtone.).
             .displaySilentRingtone(true) //set the text to display of the positive (ok) button.
             .setPositiveButtonText("Tanlash") //set text to display as negative button.
-            .setCancelButtonText("Bekor   ") //Set flag true if you want to play the sample of the clicked tone.
+            .setCancelButtonText("Bekor qilish") //Set flag true if you want to play the sample of the clicked tone.
             .setPlaySampleWhileSelection(true) //Set the callback listener.
             .setListener(object : RingtonePickerListener {
                 override fun OnRingtoneSelected(ringtoneName: String, ringtoneUri: Uri?) {
