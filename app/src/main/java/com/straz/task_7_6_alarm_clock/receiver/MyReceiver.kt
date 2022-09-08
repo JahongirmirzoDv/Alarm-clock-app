@@ -16,6 +16,7 @@ import com.straz.task_7_6_alarm_clock.`object`.*
 class MyReceiver : BroadcastReceiver() {
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
     override fun onReceive(context: Context, intent: Intent) {
+        Log.e("TAG", "onReceive: ")
         initPref(context)
         playSound(context, ALARM_URL_PREF ?: "")
         setNextAlarm(context)

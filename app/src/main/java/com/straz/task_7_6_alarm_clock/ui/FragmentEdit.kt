@@ -17,6 +17,7 @@ import com.straz.task_7_6_alarm_clock.`object`.*
 import com.straz.task_7_6_alarm_clock.databinding.FragmentAddAlarmBinding
 import com.straz.task_7_6_alarm_clock.models.AlarmTime
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -42,7 +43,7 @@ class FragmentEdit : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddAlarmBinding.inflate(layoutInflater)
 
         arguments?.let {
@@ -111,13 +112,32 @@ class FragmentEdit : Fragment() {
 //
 //            }
             b.timePicker.setOnTimeChangedListener { view, hourOfDay, minute1 ->
-                hour = hourOfDay
+                val rightNow = Calendar.getInstance()
+                val now = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    LocalDate.now()
+                } else {
+                    TODO("VERSION.SDK_INT < O")
+                }
+                val currentHourIn24Format: Int =
+                    rightNow.get(Calendar.HOUR_OF_DAY) // return the hour in 24 hrs format (ranging from 0-23)
+                val currentHourIn12Format: Int = rightNow.get(Calendar.HOUR)
+                val currentMinute: Int = rightNow.get(Calendar.MINUTE)
+                val timeH = hourOfDay - currentHourIn24Format
+                val timeM = minute1 - currentMinute
+//            if (timeH<0){
+//                val dayOfWeek = now.dayOfWeek.value
+//                weeksBool[dayOfWeek] = true
+//                initViews()
+//            }
+                if (timeH == 0)
+                    hour = hourOfDay
                 minute = minute1
+                b.hour1.text = " ${timeH.toString().trim('-')} hour ${
+                    timeM.toString().trim('-')
+                } minute"
             }
-            setWeekListeners()
-
-
         }
+        setWeekListeners()
         setAlarmName()
         return b.root
     }
